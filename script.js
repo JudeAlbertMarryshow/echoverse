@@ -16,11 +16,10 @@ const verses = [
   "For the wages of sin is death, but the gift of God is eternal life in Christ Jesus our Lord. - Romans 6:23"
 ];
 
-let currentVerseIndex = 0;
-
 function loadVerse() {
   const verseElement = document.getElementById('bible-verse');
-  verseElement.innerText = verses[currentVerseIndex];
+  const randomIndex = Math.floor(Math.random() * verses.length);
+  verseElement.innerText = verses[randomIndex];
 }
 
 function analyzeReflection() {
@@ -32,7 +31,6 @@ function analyzeReflection() {
       
       // Move to the next verse after a delay
       setTimeout(() => {
-          currentVerseIndex = (currentVerseIndex + 1) % verses.length;
           loadVerse();
           document.getElementById('user-reflection').value = '';
           feedbackElement.innerText = '';
